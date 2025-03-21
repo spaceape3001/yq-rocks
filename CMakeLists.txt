@@ -5,8 +5,8 @@
 ################################################################################
 
 cmake_minimum_required(VERSION 3.26.0)
-project(Rocks VERSION 0.0.0.3 LANGUAGES CXX)
-
+project(YQ_Rocks VERSION 0.0.0.3 LANGUAGES CXX)
+include(local.cmake OPTIONAL)
 include(configure.cmake)
 
 if(PROJECT_IS_TOP_LEVEL)

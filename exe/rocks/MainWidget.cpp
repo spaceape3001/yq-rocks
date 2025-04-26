@@ -6,8 +6,8 @@
 
 #include "MainWidget.hpp"
 
-#include <ya/events/mouse/MousePressEvent.hpp>
-#include <yt/ui/WidgetInfoWriter.hpp>
+#include <tachyon/event/mouse/MousePressEvent.hpp>
+#include <tachyon/api/WidgetInfoWriter.hpp>
 
 MainWidget::MainWidget()
 {

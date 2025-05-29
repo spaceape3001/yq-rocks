@@ -13,5 +13,6 @@ add_executable(rocks
 target_link_libraries(rocks
     PUBLIC 
         yq_tachyon 
+        yq_rocksVk
 )
 

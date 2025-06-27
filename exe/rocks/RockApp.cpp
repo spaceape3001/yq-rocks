@@ -9,6 +9,7 @@
 #include <tachyon/os/Monitor.hpp>
 #include <tachyon/logging.hpp>
 #include "MainWidget.hpp"
+#include <tachyon/api/Tachyon.hxx>
 
 RockApp* RockApp::s_app = nullptr;
 

@@ -7,7 +7,7 @@
 #include "MainWidget.hpp"
 
 #include <tachyon/event/mouse/MousePressEvent.hpp>
-#include <tachyon/api/WidgetInfoWriter.hpp>
+#include <tachyon/api/WidgetMetaWriter.hpp>
 
 MainWidget::MainWidget()
 {

@@ -23,7 +23,7 @@ void  MainWidget::on_mouse_press_event(const MousePressEvent&evt)
     //cmd_close();
 }
 
-void  MainWidget::init_info()
+void  MainWidget::init_meta()
 {
     auto w = writer<MainWidget>();
     w.slot(&MainWidget::on_mouse_press_event);

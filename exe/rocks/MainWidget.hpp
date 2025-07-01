@@ -24,5 +24,5 @@ public:
 
     void    on_mouse_press_event(const MousePressEvent&);
 
-    static void init_info();
+    static void init_meta();
 };

@@ -11,8 +11,8 @@ int main(int argc, char* argv[])
 {
     AppCreateInfo        aci;
     
-    //aci.threads.sim     = true;
-    //aci.threads.viewer  = PER;
+    aci.thread.sim      = true;
+    aci.thread.viewer   = PER;    // currently with a threading error (needs to be sorted)
 
     RockApp app(argc, argv, aci);
     if(!app.start()){

@@ -25,4 +25,6 @@ public:
     void    on_mouse_press_event(const MousePressEvent&);
 
     static void init_meta();
+    
+    virtual bool    is_imgui() const override { return false; }
 };

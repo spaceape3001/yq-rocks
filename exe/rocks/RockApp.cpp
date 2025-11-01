@@ -5,11 +5,11 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #include "RockApp.hpp"
-#include <tachyon/os/Desktop.hpp>
-#include <tachyon/os/Monitor.hpp>
-#include <tachyon/logging.hpp>
+#include <yq/tachyon/os/Desktop.hpp>
+#include <yq/tachyon/os/Monitor.hpp>
+#include <yq/tachyon/logging.hpp>
 #include "MainWidget.hpp"
-#include <tachyon/api/Tachyon.hxx>
+#include <yq/tachyon/api/Tachyon.hxx>
 
 RockApp* RockApp::s_app = nullptr;
 

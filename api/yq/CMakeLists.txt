@@ -4,6 +4,9 @@
 ##
 ################################################################################
 
-set(ROCKS_API_DIR ${CMAKE_CURRENT_LIST_DIR})
+add_subdirectory(rocks)
 
-add_subdirectory(yq)
+if(Build_Vulkan)
+    add_subdirectory(rocksVk)
+endif()
+

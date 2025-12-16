@@ -67,6 +67,8 @@ bool RockApp::start()
     ViewerCreateInfo        vci;
     vci.title           = "Rocks";
     vci.resizable       = false;
+    vci.imgui           = true;
+    vci.imgui_enabled   = false;
     //vci.floating        = true;
     //vci.decorated       = false;
     size_t                  counter = 0;

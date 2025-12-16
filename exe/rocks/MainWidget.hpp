@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include <yq/tachyon/api/Widget.hpp>
+#include <yq/assetvk/widget/CompositeWidget.hpp>
 
 namespace yq::tachyon {
     class MousePressEvent;
@@ -15,8 +15,8 @@ namespace yq::tachyon {
 using namespace yq;
 using namespace yq::tachyon;
 
-class MainWidget : public Widget {
-    YQ_TACHYON_DECLARE(MainWidget, Widget)
+class MainWidget : public CompositeWidget {
+    YQ_TACHYON_DECLARE(MainWidget, CompositeWidget)
 public:
 
     MainWidget();
@@ -25,6 +25,4 @@ public:
     void    on_mouse_press_event(const MousePressEvent&);
 
     static void init_meta();
-    
-    virtual bool    is_imgui() const override { return false; }
 };

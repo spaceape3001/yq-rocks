@@ -7,6 +7,7 @@
 #pragma once
 
 #include <yq/assetvk/widget/CompositeWidget.hpp>
+#include <yq/assetvk/widget/SceneWidget.hpp>
 
 namespace yq::tachyon {
     class MousePressEvent;
@@ -15,11 +16,11 @@ namespace yq::tachyon {
 using namespace yq;
 using namespace yq::tachyon;
 
-class MainWidget : public CompositeWidget {
-    YQ_TACHYON_DECLARE(MainWidget, CompositeWidget)
+class MainWidget : public SceneWidget {
+    YQ_TACHYON_DECLARE(MainWidget, SceneWidget)
 public:
 
-    MainWidget();
+    MainWidget(SceneID, CameraID);
     ~MainWidget();
 
     void    on_mouse_press_event(const MousePressEvent&);

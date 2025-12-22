@@ -7,6 +7,7 @@
 add_executable(rocks
     rocks.cpp
     MainWidget.cpp
+    MainScene.cpp
     RockApp.cpp
 )
 

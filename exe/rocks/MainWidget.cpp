@@ -9,8 +9,10 @@
 #include <yq/tachyon/event/mouse/MousePressEvent.hpp>
 #include <yq/tachyon/api/WidgetMetaWriter.hpp>
 
-MainWidget::MainWidget()
+MainWidget::MainWidget(SceneID sc, CameraID ca)
 {
+    set_scene(sc);
+    set_camera(ca);
 }
 
 MainWidget::~MainWidget()

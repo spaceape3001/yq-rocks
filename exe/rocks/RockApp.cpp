@@ -9,7 +9,12 @@
 #include <yq/tachyon/os/Monitor.hpp>
 #include <yq/tachyon/logging.hpp>
 #include "MainWidget.hpp"
+#include "MainScene.hpp"
+#include <yq/assetvk/camera/SpaceCamera.hpp>
+#include <yq/assetvk/controller/Space3Controller.hpp>
+#include <yq/assetvk/spatial/SimpleSpatial3.hpp>
 #include <yq/tachyon/api/Tachyon.hxx>
+#include <yq/tachyon/api/N.hxx>
 
 RockApp* RockApp::s_app = nullptr;
 
@@ -80,8 +85,24 @@ bool RockApp::start()
     vci.size        = { 1920, 1080 };
     //vci.clear       = { 0.001f, 0.001f, 0.001f, 1.f};
     
+    RocksScene*      sc  = Tachyon::create_on<RocksScene>(SIM);
+
+    size_t      cnt     = 0;
+    double      hc      = (double) m_windows.size();
+    Space³Controller* co  = Tachyon::create<Space³Controller>();
+    tick(); tick();
+    
     for(XWin& xw : m_windows){
 yInfo() << "Monitor> " << xw.pixels.x << "*" << xw.pixels.y << " " << xw.position.x << "," << xw.position.y;
+
+        SimpleSpatial³::Param sp;
+        sp.orientation  = Quaternion3D(HPR, Degree( ((double) cnt - hc) * 70. ), 0._deg, 0._deg);
+        
+        SpaceCamera*ca  = Tachyon::create<SpaceCamera>();
+        ca->create_spatial<SimpleSpatial³>(sp);
+        co->cmd_control(ca);
+        ca->owner(PUSH, SIM);
+        
 
         vci.monitor     = xw.monitor;
         vci.position        = iround(xw.position);
@@ -89,11 +110,12 @@ yInfo() << "Monitor> " << xw.pixels.x << "*" << xw.pixels.y << " " << xw.positio
         //vci.size            = iround(xw.pixels*0.75);
         vci.clear           = kColors[(counter++) % nColors];
         
-        WidgetPtr   w   = Tachyon::create<MainWidget>();
+        WidgetPtr   w   = Tachyon::create<MainWidget>(sc->id(), ca->id());
         widgets.push_back(w);
         xw.widget   = w->id();
         xw.viewer   = create(VIEWER, vci, w);
         tick(); tick();
+        ++cnt;
     }
     
     

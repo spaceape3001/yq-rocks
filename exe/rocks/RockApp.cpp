@@ -13,8 +13,10 @@
 #include <yq/assetvk/camera/SpaceCamera.hpp>
 #include <yq/assetvk/controller/Space3Controller.hpp>
 #include <yq/assetvk/spatial/SimpleSpatial3.hpp>
+
 #include <yq/tachyon/api/Tachyon.hxx>
 #include <yq/tachyon/api/N.hxx>
+#include <yq/vector/Quaternion3.hxx>
 
 RockApp* RockApp::s_app = nullptr;
 
@@ -74,6 +76,7 @@ bool RockApp::start()
     vci.resizable       = false;
     vci.imgui           = true;
     vci.imgui_enabled   = false;
+    vci.descriptors     = 32768;
     //vci.floating        = true;
     //vci.decorated       = false;
     size_t                  counter = 0;
@@ -102,7 +105,6 @@ yInfo() << "Monitor> " << xw.pixels.x << "*" << xw.pixels.y << " " << xw.positio
         ca->create_spatial<SimpleSpatial³>(sp);
         co->cmd_control(ca);
         ca->owner(PUSH, SIM);
-        
 
         vci.monitor     = xw.monitor;
         vci.position        = iround(xw.position);
@@ -115,6 +117,7 @@ yInfo() << "Monitor> " << xw.pixels.x << "*" << xw.pixels.y << " " << xw.positio
         xw.widget   = w->id();
         xw.viewer   = create(VIEWER, vci, w);
         tick(); tick();
+        co->cmd_listen(*w);
         ++cnt;
     }
     

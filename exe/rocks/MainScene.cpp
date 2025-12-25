@@ -10,8 +10,10 @@
 #include <yq/assetvk/spatial/CircularSpatial3.hpp>
 #include <yq/tachyon/api/Context.hpp>
 #include <yq/tachyon/api/SceneMetaWriter.hpp>
+
 #include <yq/tachyon/api/N.hxx>
 #include <yq/tachyon/api/Tachyon.hxx>
+#include <yq/vector/Quaternion3.hxx>
 
 YQ_TACHYON_IMPLEMENT(RocksScene)
 
